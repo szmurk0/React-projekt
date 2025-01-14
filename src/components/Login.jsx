@@ -9,20 +9,20 @@ const Login = ({ setUserRole }) => {
   const [error, setError] = useState('');
   const [isRegistering, setIsRegistering] = useState(false);
   const [users, setUsers] = useState(
-    JSON.parse(localStorage.getItem('users')) || [] // Pobieranie użytkowników z localStorage
+    JSON.parse(localStorage.getItem('users')) || []
   );
 
-  // Predefiniowane dane logowania dla administratora
+
   const adminLogin = 'admin';
   const adminPassword = 'admin';
 
   const handleLogin = () => {
     if (login === adminLogin && password === adminPassword) {
-      setUserRole('admin'); // Administrator
+      setUserRole('admin');
     } else {
       const user = users.find((user) => user.login === login && user.password === password);
       if (user) {
-        setUserRole(user.role); // Ustawiamy rolę na podstawie danych użytkownika
+        setUserRole(user.role);
       } else {
         setError('Nieprawidłowy login lub hasło');
       }
@@ -30,17 +30,15 @@ const Login = ({ setUserRole }) => {
   };
 
   const handleRegister = () => {
-    // Sprawdzamy, czy użytkownik już istnieje
     if (users.some((user) => user.login === login)) {
       setError('Taki użytkownik już istnieje');
       return;
     }
 
-    // Dodajemy nowego użytkownika
-    const newUser = { login, password, role: 'user' }; // Przypisujemy domyślną rolę 'user'
+    const newUser = { login, password, role: 'user' };
     const updatedUsers = [...users, newUser];
     setUsers(updatedUsers);
-    localStorage.setItem('users', JSON.stringify(updatedUsers)); // Zapisujemy w localStorage
+    localStorage.setItem('users', JSON.stringify(updatedUsers));
 
     setError('');
     setIsRegistering(false);
@@ -71,13 +69,13 @@ const Login = ({ setUserRole }) => {
         <>
           <center><button onClick={handleRegister} className="btn btn-success m-2">
             Zarejestruj
-          </button>
+          </button></center>
           <button
             onClick={() => setIsRegistering(false)}
             className="btn btn-secondary m-2"
           >
             Masz już konto? Zaloguj się
-          </button></center>
+          </button>
         </>
       ) : (
         <>

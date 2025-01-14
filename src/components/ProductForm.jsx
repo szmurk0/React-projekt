@@ -14,13 +14,13 @@ const ProductForm = ({ onProductAdded }) => {
     const newProduct = {
       name,
       price,
-      image,  // Przekazujesz URL obrazu
+      image,
       description,
     };
   
     try {
       await axios.post('http://localhost:5000/api/products', newProduct);
-      onProductAdded(); // Odśwież listę produktów po dodaniu
+      onProductAdded();
     } catch (error) {
       console.error('Błąd podczas dodawania produktu:', error);
     }

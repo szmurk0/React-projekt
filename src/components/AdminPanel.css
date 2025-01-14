@@ -1,4 +1,3 @@
-/* Ustawienia ogólne */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -10,7 +9,6 @@ body {
     background-color: #f0f4f8;
 }
 
-/* Kontener panelu administratora */
 .admin-container {
     padding: 30px;
     background-color: #ffffff;
@@ -39,7 +37,7 @@ h2 {
 form {
     display: flex;
     flex-direction: column;
-    gap: 20px; /* Większe odstępy między elementami */
+    gap: 20px;
 }
 
 label {
@@ -49,7 +47,7 @@ label {
 }
 
 input, textarea {
-    width: 100%; /* Ustawienie szerokości na 100% */
+    width: 100%;
     padding: 10px;
     font-size: 1rem;
     border: 1px solid #ccc;
@@ -68,10 +66,9 @@ input:focus, textarea:focus {
     outline: none;
 }
 
-/* Styl dla przycisków */
 button {
     background-color: #0056b3;
-    width: 200px; /* Stała szerokość przycisku */
+    width: 200px;
     color: #fff;
     font-size: 1rem;
     padding: 12px 20px;
@@ -79,7 +76,7 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    align-self: center; /* Centrowanie przycisku */
+    align-self: center;
 }
 
 button:hover {
@@ -100,13 +97,13 @@ button:hover {
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    flex-direction: column; /* Układ w kolumnie */
-    gap: 10px; /* Odstęp między elementami w liście */
+    flex-direction: column;
+    gap: 10px;
 }
 
 .product-list li h3,
 .product-list li p {
-    margin-bottom: 8px; /* Dodanie odstępu między tekstem */
+    margin-bottom: 8px;
     font-size: 1rem;
     color: #333;
 }
@@ -123,15 +120,14 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    align-self: flex-start; /* Wyrównanie przycisku do lewej */
-    margin-top: 10px; /* Dodanie odstępu od tekstu */
+    align-self: flex-start;
+    margin-top: 10px;
 }
 
 .product-list li .btn:hover {
     background-color: #c82333;
 }
 
-/* Dodatkowe style dla responsywności */
 @media (max-width: 768px) {
     .admin-container {
         padding: 20px;

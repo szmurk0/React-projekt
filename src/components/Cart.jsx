@@ -1,26 +1,9 @@
 import PropTypes from 'prop-types';
 import './Cart.css';
-import axios from 'axios';
 
 const Cart = ({ cartItems, updateQuantity, removeItem, clearCart, placeOrder }) => {
   const calculateTotal = () => {
     return cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
-  };
-
-  const handlePlaceOrder = async () => {
-    const orderData = {
-      userId: 1,  // Przykładowy ID użytkownika, w rzeczywistości można pobrać z sesji użytkownika
-      cartItems: cartItems,
-      totalPrice: calculateTotal(),
-    };
-
-    try {
-      await axios.post('/api/orders', orderData);
-      alert('Zamówienie zostało złożone');
-      clearCart();  // Wyczyść koszyk po złożeniu zamówienia
-    } catch (error) {
-      console.error('Błąd podczas składania zamówienia', error);
-    }
   };
 
   return (
@@ -60,7 +43,7 @@ const Cart = ({ cartItems, updateQuantity, removeItem, clearCart, placeOrder }) 
         <button className="clear-cart-btn" onClick={clearCart}>
           Wyczyść koszyk
         </button>
-        <button className="place-order-btn" onClick={handlePlaceOrder}>
+        <button className="place-order-btn" onClick={placeOrder}>
           Złóż zamówienie
         </button>
       </div>

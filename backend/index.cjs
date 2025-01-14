@@ -6,16 +6,14 @@ const bcrypt = require('bcrypt');
 const app = express();
 const PORT = 5000;
 
-// Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
-// MySQL Connection
 const db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
-  password: '', // Twoje hasło do MySQL
-  database: 'sklepik_baza', // Nazwa bazy danych
+  password: '',
+  database: 'sklepik_baza',
 });
 
 db.connect((err) => {
@@ -27,7 +25,6 @@ db.connect((err) => {
 });
 
 
-// Endpoint do usuwania produktu
 app.delete('/api/products/:id', (req, res) => {
   const { id } = req.params;
 
@@ -45,7 +42,6 @@ app.delete('/api/products/:id', (req, res) => {
 });
 
 
-// Endpoint do aktualizacji produktu
 app.put('/api/products/:id', (req, res) => {
   const { id } = req.params;
   const { name, price } = req.body;
@@ -66,11 +62,9 @@ app.put('/api/products/:id', (req, res) => {
 
 
 
-// Endpoint do rejestracji użytkownika
 app.post('/api/register', (req, res) => {
   const { login, password, role } = req.body;
 
-  // Sprawdź, czy użytkownik już istnieje
   const checkQuery = 'SELECT * FROM users WHERE login = ?';
   db.query(checkQuery, [login], (err, results) => {
     if (err) {
@@ -80,13 +74,11 @@ app.post('/api/register', (req, res) => {
       return res.status(400).send('Użytkownik już istnieje');
     }
 
-    // Sól i haszowanie hasła
     bcrypt.hash(password, 10, (err, hashedPassword) => {
       if (err) {
         return res.status(500).send('Błąd podczas haszowania hasła');
       }
 
-      // Dodaj nowego użytkownika
       const insertQuery = 'INSERT INTO users (login, password, role) VALUES (?, ?, ?)';
       db.query(insertQuery, [login, hashedPassword, role], (err) => {
         if (err) {
@@ -98,7 +90,6 @@ app.post('/api/register', (req, res) => {
   });
 });
 
-// Endpoint do aktualizacji produktu
 app.put('/api/products/:id', (req, res) => {
   const { id } = req.params;
   const { name, price } = req.body;
@@ -116,7 +107,6 @@ app.put('/api/products/:id', (req, res) => {
 });
 
 
-// Endpoint do usuwania produktu
 app.delete('/api/products/:id', (req, res) => {
   const { id } = req.params;
 
@@ -177,7 +167,7 @@ const orderSchema = new mongoose.Schema({
     },
   ],
   totalPrice: Number,
-  status: String, // np. 'Złożone', 'W trakcie realizacji', 'Zrealizowane'
+  status: String,
   date: { type: Date, default: Date.now },
 });
 
@@ -205,7 +195,6 @@ app.post('/api/products', (req, res) => {
 
 
 
-// Endpoint do pobierania produktów
 app.get('/api/products', (req, res) => {
   const selectQuery = 'SELECT * FROM products';
   db.query(selectQuery, (err, results) => {
@@ -219,11 +208,9 @@ app.get('/api/products', (req, res) => {
 
 
 
-// Endpoint do logowania użytkownika
 app.post('/api/login', (req, res) => {
   const { login, password } = req.body;
 
-  // Sprawdź, czy użytkownik istnieje
   const query = 'SELECT * FROM users WHERE login = ?';
   db.query(query, [login], (err, results) => {
     if (err) {
@@ -233,7 +220,6 @@ app.post('/api/login', (req, res) => {
       return res.status(401).send('Nieprawidłowy login lub hasło');
     }
 
-    // Porównaj hasło
     bcrypt.compare(password, results[0].password, (err, isMatch) => {
       if (err) {
         return res.status(500).send('Błąd podczas porównywania haseł');
@@ -247,7 +233,6 @@ app.post('/api/login', (req, res) => {
   });
 });
 
-// Start serwera
 app.listen(PORT, () => {
   console.log(`Serwer działa na http://localhost:${PORT}`);
 });

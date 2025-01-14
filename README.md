@@ -27,3 +27,6 @@ W przyszłości można dodać następujące funkcjonalności:
 Integracja z backendem: Aby przechowywać dane o użytkownikach i zamówieniach w bazie danych.
 Autoryzacja JWT: W celu zapewnienia bezpiecznego logowania i przechowywania tokenów sesji.
 Edytowanie zamówień: Możliwość edytowania istniejących zamówień przez użytkowników.
+
+# Logowanie admina: login: admin / hasło: admin
+# Logowanie użytkownika: Trzeba stworzyć samemu własne konto przy logowaniu się.

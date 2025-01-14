@@ -23,7 +23,7 @@ const AdminPanel = () => {
   const handleDelete = async (productId) => {
     try {
       await axios.delete(`http://localhost:5000/api/products/${productId}`);
-      fetchProducts(); // Odświeżenie listy produktów
+      fetchProducts();
     } catch (error) {
       console.error('Błąd podczas usuwania produktu:', error);
     }

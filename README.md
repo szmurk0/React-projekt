@@ -1,5 +1,5 @@
-Komponenty
-###1. AdminPanel.jsx
+
+### 1. AdminPanel.jsx
 Panel administracyjny, który pozwala administratorowi zarządzać produktami.
 Administrator może:
   Dodawać nowe produkty.
@@ -10,7 +10,7 @@ Komunikacja z API odbywa się za pomocą axiosa.
 Wyświetla listę wszystkich produktów i umożliwia usuwanie oraz edytowanie.
 
 
-###2. Cart.jsx
+### 2. Cart.jsx
 Koszyk zakupowy, który wyświetla produkty dodane przez użytkownika.
 
 Funkcje:
@@ -28,7 +28,7 @@ Propsy:
   placeOrder: Funkcja do składania zamówienia.
 
 
-###3. Login.jsx
+### 3. Login.jsx
 Komponent logowania/rejestracji użytkownika.
 Logowanie jako administrator: login admin, hasło admin.
 Rejestracja użytkowników za pomocą localStorage.
@@ -42,7 +42,7 @@ Propsy:
 
 
 
-###4. Navbar.jsx
+### 4. Navbar.jsx
 Pasek nawigacyjny aplikacji dostępny po zalogowaniu.
 
 Funkcje:
@@ -55,7 +55,7 @@ Propsy:
   setActivePage: Funkcja zmieniająca aktualną stronę.
 
   
-###5. OrderHistory.jsx
+### 5. OrderHistory.jsx
 Komponent wyświetlający historię zamówień użytkownika.
 
 Zawiera szczegółowe informacje o każdym zamówieniu:
@@ -66,7 +66,7 @@ Propsy:
   orders: Tablica z danymi zamówień użytkownika.
 
 
-###6. ProductCard.jsx
+### 6. ProductCard.jsx
 Karta produktu, która wyświetla informacje o produkcie na liście produktów.
 
 Wyświetla:
@@ -78,7 +78,7 @@ Propsy:
   product: Obiekt produktu zawierający jego nazwę, cenę, opis i obrazek.
 
 
-###7. ProductForm.jsx
+### 7. ProductForm.jsx
 Formularz do dodawania nowych produktów w panelu administratora.
 Pozwala na wprowadzenie nazwy produktu, ceny, opisu i URL obrazka.
 Po dodaniu produktu, formularz wysyła dane do API i odświeża listę produktów.
@@ -86,7 +86,7 @@ Propsy:
   onProductAdded: Funkcja do odświeżenia listy produktów po dodaniu nowego.
 
 
-###8. ProductList.jsx
+### 8. ProductList.jsx
 Lista produktów dostępnych dla użytkowników.
 Wyświetla wszystkie produkty pobrane z API.
 Użytkownik może dodać produkt do koszyka.
@@ -94,23 +94,23 @@ Propsy:
   addToCart: Funkcja do dodawania produktów do koszyka.
 
 
-###Stylizacja
+### Stylizacja
   Projekt używa Bootstrap oraz dodatkowych plików CSS, które znajdziesz w folderach komponentów.
 
-###Wymagania systemowe
+### Wymagania systemowe
 Node.js w wersji >=14.x
 npm lub yarn
 Serwer API (np. json-server lub backend w Node.js, Pythonie itp.)
 
 
-###Zależności
+### Zależności
   React: Biblioteka do budowania interfejsu użytkownika.
   axios: Obsługa żądań HTTP.
   prop-types: Walidacja typów propsów w komponentach React.
   bootstrap: Framework CSS do stylizacji.
 
 
-###Użycie API
+### Użycie API
 Aplikacja korzysta z lokalnego serwera API do zarządzania produktami. Przykład endpointów API:
   GET /api/products - pobiera listę wszystkich produktów.
   POST /api/products - dodaje nowy produkt.

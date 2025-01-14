@@ -1,0 +1,153 @@
+/* Ustawienia ogólne */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+}
+
+/* Kontener panelu administratora */
+.admin-container {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    max-width: 900px;
+    margin: 40px auto;
+    overflow: hidden;
+}
+
+.admin-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* Formularz */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Większe odstępy między elementami */
+}
+
+label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+}
+
+input, textarea {
+    width: 100%; /* Ustawienie szerokości na 100% */
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+input[type="number"] {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+}
+
+input:focus, textarea:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+/* Styl dla przycisków */
+button {
+    background-color: #0056b3;
+    width: 200px; /* Stała szerokość przycisku */
+    color: #fff;
+    font-size: 1rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center; /* Centrowanie przycisku */
+}
+
+button:hover {
+    background-color: #003d80;
+}
+
+/* Lista produktów */
+.product-list {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.product-list li {
+    background-color: #ffffff;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column; /* Układ w kolumnie */
+    gap: 10px; /* Odstęp między elementami w liście */
+}
+
+.product-list li h3,
+.product-list li p {
+    margin-bottom: 8px; /* Dodanie odstępu między tekstem */
+    font-size: 1rem;
+    color: #333;
+}
+
+.product-list li p {
+    color: #777;
+}
+
+.product-list li .btn {
+    background-color: #dc3545;
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: flex-start; /* Wyrównanie przycisku do lewej */
+    margin-top: 10px; /* Dodanie odstępu od tekstu */
+}
+
+.product-list li .btn:hover {
+    background-color: #c82333;
+}
+
+/* Dodatkowe style dla responsywności */
+@media (max-width: 768px) {
+    .admin-container {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    form {
+        gap: 15px;
+    }
+
+    button {
+        padding: 10px 15px;
+    }
+
+    .product-list li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
